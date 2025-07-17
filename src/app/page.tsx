@@ -60,7 +60,7 @@ export default function HomePage() {
                   variant="outline"
                   className="border-white text-white hover:bg-white hover:text-red-500 bg-transparent"
                 >
-                  Conhecer Projetos
+                  Conhecer Organizações
                 </Button>
               </div>
             </div>
