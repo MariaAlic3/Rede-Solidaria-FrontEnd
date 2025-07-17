@@ -26,7 +26,7 @@ export default function Header() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
               <Heart className="h-8 w-8 text-red-500" />
-              <span className="text-xl font-bold text-gray-900">DoaçõesBR</span>
+              <span className="text-xl font-bold text-gray-900">Rede Solidária</span>
             </Link>
           </div>
 
