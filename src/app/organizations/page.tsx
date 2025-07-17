@@ -53,6 +53,15 @@ type Organization = {
 
 type FormData = z.infer<typeof formSchema>;
 
+// Componente para renderizar a data apenas no cliente
+function ClientDate({ date }: { date: string }) {
+  const [formatted, setFormatted] = useState("");
+  useEffect(() => {
+    setFormatted(new Date(date).toLocaleDateString());
+  }, [date]);
+  return <>{formatted}</>;
+}
+
 export default function OrganizationsPage() {
   // Estados para lista, loading, erro e filtros  
   const [organizations, setOrganizations] = useState<Organization[]>([]);
@@ -71,7 +80,7 @@ export default function OrganizationsPage() {
     resolver: zodResolver(formSchema),
   });
 
-    // Função para buscar organizações na API
+  // Função para buscar organizações na API
   const fetchOrganizations = () => {
     setLoading(true);
     setError("");
@@ -97,6 +106,7 @@ export default function OrganizationsPage() {
       alert("Erro ao criar organização");
     }
   };
+
   // Filtra organizações pelo termo de busca e categoria
   const filteredOrganizations = organizations.filter((org) => {
     const matchesSearch =
@@ -106,6 +116,7 @@ export default function OrganizationsPage() {
       selectedCategory === "" || org.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
+
   // Categorias disponíveis para filtro
   const categories = [
     "Educação",
@@ -114,6 +125,7 @@ export default function OrganizationsPage() {
     "Assistência Social",
     "Direitos Humanos",
   ];
+
   // Função para definir cor do badge de categoria
   const getCategoryColor = (category?: string) => {
     const colors: Record<string, string> = {
@@ -272,7 +284,7 @@ export default function OrganizationsPage() {
                     <Calendar className="h-4 w-4 mr-2" />
                     {/* Mostra data de criação ou texto padrão */}
                     {org.createdAt
-                      ? `Criada em ${new Date(org.createdAt).toLocaleDateString()}`
+                      ? <ClientDate date={org.createdAt} />
                       : "Data desconhecida"}
                   </div>
                   <div className="flex items-center">
