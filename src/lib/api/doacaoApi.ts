@@ -1,5 +1,5 @@
 import { apiDelete, apiGet, apiPost, apiPut } from "./baseApi";
-import { Doacao } from "@/types/doacao";
+import { Doacao } from "@/src/types/doacao";
 
 export async function getDoacoes(): Promise<Doacao[]> {
     return await apiGet<Doacao[]>("/doacao");
