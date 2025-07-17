@@ -46,8 +46,10 @@ export default function Header() {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" size="sm">
-              Entrar
+            <Button asChild variant="outline" size="sm">
+              <Link href={"/auth/login"}>
+                Entrar
+              </Link>
             </Button>
             <Button size="sm" className="bg-red-500 hover:bg-red-600">
               Doar Agora
@@ -56,8 +58,8 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <Button variant="ghost" size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <Button variant="ghost" className="p-4" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              {isMenuOpen ? <X className="h-6 w-6 text-red-500" /> : <Menu className="h-6 w-6 text-gray-500" />}
             </Button>
           </div>
         </div>
@@ -80,7 +82,9 @@ export default function Header() {
               ))}
               <div className="flex flex-col space-y-2 px-3 pt-4">
                 <Button variant="outline" size="sm">
-                  Entrar
+                  <Link href={"/auth/login"}>
+                    Entrar
+                  </Link>
                 </Button>
                 <Button size="sm" className="bg-red-500 hover:bg-red-600">
                   Doar Agora
