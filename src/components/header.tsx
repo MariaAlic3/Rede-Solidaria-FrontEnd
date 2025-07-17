@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/src/components/ui/button"
 import { Heart, Menu, X } from "lucide-react"
 import { usePathname } from "next/navigation"
 
