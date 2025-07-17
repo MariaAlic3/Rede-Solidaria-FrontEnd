@@ -16,21 +16,21 @@ export default function HomePage() {
     {
       title: "Educação",
       description: "Apoie projetos educacionais que transformam comunidades",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/images/educacao.jpeg?height=200&width=300",
       raised: "R$ 45.000",
       goal: "R$ 60.000",
     },
     {
       title: "Saúde",
       description: "Contribua para melhorar o acesso à saúde de qualidade",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/images/saude.jpeg?height=200&width=300",
       raised: "R$ 32.000",
       goal: "R$ 40.000",
     },
     {
       title: "Meio Ambiente",
       description: "Participe de iniciativas de preservação ambiental",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/images/meioambiente.jpeg?height=200&width=300",
       raised: "R$ 28.000",
       goal: "R$ 35.000",
     },
@@ -66,7 +66,7 @@ export default function HomePage() {
             </div>
             <div className="relative">
               <Image
-                src="/placeholder.svg?height=400&width=500"
+                src="/images/doacao.jpeg?height=400&width=500"
                 alt="Pessoas ajudando"
                 width={500}
                 height={400}
@@ -98,8 +98,8 @@ export default function HomePage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Causas em Destaque</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-400 mb-4">Causas em Destaque</h2>
+            <p className="text-xl text-gray-500 max-w-2xl mx-auto">
               Conheça alguns dos projetos que estão transformando vidas em todo o Brasil
             </p>
           </div>
