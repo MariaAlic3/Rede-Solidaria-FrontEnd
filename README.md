@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rede Solidária FrontEnd
 
-## Getting Started
+Este é o frontend do projeto **Rede Solidária**, desenvolvido com [Next.js](https://nextjs.org) e TypeScript. O objetivo do projeto é conectar pessoas que desejam ajudar com aquelas que precisam de apoio, promovendo solidariedade e colaboração.
 
-First, run the development server:
+## Sumário
+
+- [Começando](#começando)
+- [Scripts Disponíveis](#scripts-disponíveis)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Como Contribuir](#como-contribuir)
+- [Deploy](#deploy)
+- [Licença](#licença)
+
+## Começando
+
+Para rodar o projeto localmente, siga os passos abaixo:
 
 ```bash
+git clone https://github.com/MariaAlic3/Rede-Solidaria-FrontEnd.git
+cd Rede-Solidaria-FrontEnd
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no navegador para ver o resultado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts Disponíveis
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` — Inicia o servidor de desenvolvimento.
+- `npm run build` — Gera a versão de produção.
+- `npm start` — Inicia o servidor em produção.
+- `npm run lint` — Executa o linter.
 
-## Learn More
+## Estrutura do Projeto
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+  app/                # Páginas e rotas do Next.js
+  components/         # Componentes reutilizáveis
+  types/              # Tipagens e interfaces
+lib/                  # Funções utilitárias e bibliotecas
+public/               # Arquivos estáticos (imagens, ícones, etc)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tecnologias Utilizadas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [Next.js](https://nextjs.org/)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Vercel Fonts - Geist](https://vercel.com/font)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [Husky](https://typicode.github.io/husky/#/)
 
-## Deploy on Vercel
+## Como Contribuir
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Contribuições são bem-vindas! Siga os passos abaixo para contribuir com o projeto:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Faça um fork deste repositório.
+2. Crie uma nova branch: `git checkout -b minha-contribuicao`
+3. Faça suas alterações e commit: `git commit -m 'Minha contribuição'`
+4. Envie para o seu fork: `git push origin minha-contribuicao`
+5. Abra um Pull Request neste repositório.
+
+## Deploy
+
+O deploy deste projeto é feito automaticamente pelo Vercel ao fazer push na branch `main`.
+
+Para mais detalhes, consulte a documentação de [Deploy no Vercel](https://nextjs.org/docs/app/building-your-application/deploying).
+
+## Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+Feito com ♥ pela equipe Rede Solidária.

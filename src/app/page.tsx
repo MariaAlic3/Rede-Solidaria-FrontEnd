@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Button } from "src/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "src/components/ui/card"
+import { Button } from "@/src/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/src/components/ui/card"
 import { Heart, Users, MapPin, TrendingUp, ArrowRight } from "lucide-react"
 
 export default function HomePage() {
@@ -60,7 +60,7 @@ export default function HomePage() {
                   variant="outline"
                   className="border-white text-white hover:bg-white hover:text-red-500 bg-transparent"
                 >
-                  Conhecer Projetos
+                  Conhecer Organizações
                 </Button>
               </div>
             </div>
@@ -98,8 +98,8 @@ export default function HomePage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Causas em Destaque</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-400 mb-4">Causas em Destaque</h2>
+            <p className="text-xl text-gray-500 max-w-2xl mx-auto">
               Conheça alguns dos projetos que estão transformando vidas em todo o Brasil
             </p>
           </div>

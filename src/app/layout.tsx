@@ -1,18 +1,39 @@
-import type React from "react"
-import "./globals.css"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import { ThemeProvider } from "../components/theme-provider"
-import Header from "../components/header"
-import Footer from "../components/footer"
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+import Header from "@/src/components/header";
+import Footer from "@/src/components/footer";
+import { ThemeProvider } from "../components/theme-provider";
 
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
 
-const inter = Inter({ subsets: ["latin"] })
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
-  title: "DoaçõesBR - Transformando vidas através da solidariedade",
-  description: "Plataforma de doações que conecta pessoas e organizações para criar impacto social positivo.",
-}
+  title: "Rede Solidária",
+  description: "Plataforma de apoio e solidariedade voltada à gerência de doações.",
+  keywords: ["doações", "solidariedade", "impacto social"],
+  authors: [
+    {
+      name: "Maria Alice",
+      url: "https://github.com/MariaAlic3",
+    },
+    {
+      name: "Gabriel Azevedo",
+      url: "https://github.com/BaagrieL",
+    },
+    {
+      name: "Pedro Sousa",
+      url: "https://github.com/PedroSousaF",
+    }
+  ],
+};
 
 export default function RootLayout({
   children,
@@ -20,14 +41,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <div className="flex flex-col min-h-screen">
+    <html lang="pt-br" suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <Header />
-            <main className="flex-1">{children}</main>
+            {children}
             <Footer />
-          </div>
         </ThemeProvider>
       </body>
     </html>
