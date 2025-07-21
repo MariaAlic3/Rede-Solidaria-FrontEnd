@@ -1,5 +1,5 @@
 import axios, { AxiosError } from 'axios';
-import { Doacao } from '@/types/doacao';
+import { Doacao } from '@/src/types/doacao';
 
 const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -70,6 +70,7 @@ export async function atualizarDoacao(id: string, data: Partial<Doacao>) {
     }
 }
 
+/*
 export async function getDoacoes(): Promise<Doacao[]> {
     return await apiGet<Doacao[]>("/doacao");
 }
@@ -85,3 +86,4 @@ export async function deletarDoacao(id: string) {
 export async function atualizarDoacao(id: string, data: Partial<Doacao>) {
     return await apiPut<Doacao>(`/doacao/atualizar/${id}`, data);
 }
+*/
