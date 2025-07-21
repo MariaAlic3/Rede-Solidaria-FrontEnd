@@ -25,10 +25,10 @@ import {
   Heart,
   MapPin,
   Calendar,
-  Phone,
-  Mail,
+//  Phone,
+//  Mail,
   ExternalLink,
-  Star,
+//  Star,
 } from "lucide-react";
 
 // Formulário com validação usando zod e react-hook-form

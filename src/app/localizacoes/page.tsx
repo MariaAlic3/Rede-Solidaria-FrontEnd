@@ -7,6 +7,7 @@ import { Button } from "@/src/components/ui/button"
 // import { Input } from "@/src/components/ui/input"
 // import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/src/components/ui/select"
 import { MapPin, Heart, Phone, Mail, ExternalLink } from "lucide-react"
+import Image from "next/image"
 import { Localizacao } from "@/src/types/localizacao"
 import { getLocalizacoes } from "@/lib/api/localizacaoApi"
 
@@ -180,8 +181,8 @@ export default function LocalizacoesPage() {
           {locations.map((location) => (
             <Card key={location.id_localizacao} className="overflow-hidden hover:shadow-lg transition-shadow">
               <div className="relative h-48">
-                <img
-                  src={"/placeholder.svg"}
+                <Image
+                  src="/placeholder.svg"
                   alt={location.nome}
                   className="w-full h-full object-cover"
                 />
