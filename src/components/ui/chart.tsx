@@ -5,6 +5,9 @@ import * as RechartsPrimitive from "recharts"
 
 import { cn } from "@/lib/utils"
 import { TooltipProps } from "recharts"
+import { number } from "zod"
+
+
 
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: "", dark: ".dark" } as const
@@ -106,15 +109,18 @@ const ChartTooltip = RechartsPrimitive.Tooltip
 type ChartTooltipPayload = {
   name?: string
   dataKey?: string
-  value?: number | string
+  value: number | string
   color?: string
-  payload?: any
+  payload?: {
+    fill?: string
   [key: string]: any
+   }
 }
+
 
 const ChartTooltipContent = React.forwardRef<
   HTMLDivElement,
-  Omit<TooltipProps<any, any>, "payload"> & {
+  Omit<TooltipProps<number, string>, "payload"> & {
     payload?: ChartTooltipPayload[]
     label?: string | number
     hideLabel?: boolean
@@ -143,7 +149,9 @@ const ChartTooltipContent = React.forwardRef<
     },
     ref
   ) => {
+    const typedPayload = (payload ?? []) as ChartTooltipPayload[]
     const { config } = useChart()
+
 
     const tooltipLabel = React.useMemo(() => {
       if (hideLabel || !payload?.length) {
@@ -157,14 +165,6 @@ const ChartTooltipContent = React.forwardRef<
         !labelKey && typeof label === "string" && label !== undefined
           ? config[label as keyof typeof config]?.label || label
           : itemConfig?.label
-
-      if (labelFormatter) {
-        return (
-          <div className={cn("font-medium", labelClassName)}>
-            {labelFormatter(value, payload)}
-          </div>
-        )
-      }
 
       if (!value) {
         return null
@@ -198,23 +198,39 @@ const ChartTooltipContent = React.forwardRef<
       >
         {!nestLabel ? tooltipLabel : null}
         <div className="grid gap-1.5">
-          {payload.map((item, index) => {
+          {typedPayload.map((item: ChartTooltipPayload, index: number) => {
             const key = `${nameKey || item.name || item.dataKey || "value"}`
             const itemConfig = getPayloadConfigFromPayload(config, item, key)
             const indicatorColor = color || item.payload?.fill || item.color
 
             return (
               <div
-                key={item.dataKey}
+                key={item.dataKey ?? index}
                 className={cn(
                   "flex w-full flex-wrap items-stretch gap-2 [&>svg]:h-2.5 [&>svg]:w-2.5 [&>svg]:text-muted-foreground",
                   indicator === "dot" && "items-center"
                 )}
               >
-                {formatter && item?.value !== undefined && item.name ? (
-                  formatter(item.value, item.name, item, index, item.payload)
-                ) : (
-                  <>
+                 {/* O if/else precisa englobar tudo que ele retorna */}
+           {formatter && typeof item.value === "number" &&  typeof item.name === "string" ? ( 
+            (() => {
+    const typedItem = {
+      ...item,
+      value: item.value as number,
+      name: item.name as string,
+      payload: (item.payload ?? []) as any
+    }
+    return formatter(
+      typedItem.value,
+      typedItem.name,
+      typedItem,
+      index,
+      typedItem.payload
+    )
+  })()
+                      ) : (
+           // O fragmento '<>' agora engloba a lógica do indicador E o div do conteúdo
+           <>
                     {itemConfig?.icon ? (
                       <itemConfig.icon />
                     ) : (
@@ -238,7 +254,8 @@ const ChartTooltipContent = React.forwardRef<
                           }
                         />
                       )
-                    )}
+                    )}  
+                   
                     <div
                       className={cn(
                         "flex flex-1 justify-between leading-none",
@@ -267,7 +284,7 @@ const ChartTooltipContent = React.forwardRef<
         </div>
       </div>
     )
-  }
+ }
 )
 ChartTooltipContent.displayName = "ChartTooltip"
 ChartTooltipContent.displayName = "ChartTooltip"
