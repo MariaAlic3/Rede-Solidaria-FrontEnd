@@ -138,7 +138,6 @@ const ChartTooltipContent = React.forwardRef<
       hideLabel = false,
       hideIndicator = false,
       label,
-      labelFormatter,
       labelClassName,
       formatter,
       color,
